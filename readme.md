@@ -47,3 +47,18 @@ SELECT * FROM teacher;
 SELECT id FROM teacher;
 Их можно даже дублировать
 SELECT id, surname, surname FROM teacher;
+
+SELECT DISTINCT surname FROM teacher;
+тут мы видим что имя встречается единожды 
+
+так же можно выводить
+SELECT * FROM teacher WHERE id = 1;
+SELECT * FROM teacher WHERE id = 3;
+SELECT * FROM teacher WHERE id > 3;
+SELECT * FROM teacher WHERE id < 3;
+SELECT * FROM teacher WHERE surname = "Петров";
+SELECT * FROM teacher WHERE surname = "Петров" LIMIT 2;
+SELECT * FROM teacher LIMIT 2;
+
+Так же можно заменить
+SELECT id AS 'Идентификатор', surname AS 'Фамилия' FROM teacher;
