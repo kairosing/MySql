@@ -62,3 +62,77 @@ SELECT * FROM teacher LIMIT 2;
 
 Так же можно заменить
 SELECT id AS 'Идентификатор', surname AS 'Фамилия' FROM teacher;
+
+Если хотим отсортировать по id
+SELECT * FROM teacher ORDER BY id;
+
+если в обратном порядке
+SELECT * FROM teacher ORDER BY id DESC;
+
+
+Добавим еще одно поля в таблицу с помощью ALTER
+ALTER TABLE teacher ADD age INT;
+
+теперь смотрим добавил
+show columns from teacher;
+
+Для обновление данных в таблице UPDATE
+UPDATE teacher SET age = 20 where id=1;
+
+
+При задание условия можем поставить LIKE после него задается определенный шаблон
+SELECT * FROM teacher WHERE surname LIKE "%ов"
+так он всех выведит на концовке %ов
+SELECT * FROM teacher WHERE surname LIKE "%ин";
+теперь выведит на концовке ин
+SELECT * FROM teacher WHERE surname LIKE "п%ов";
+
+Логические операторы where and or
+SELECT * FROM teacher WHERE id > 3 AND age < 45;
+SELECT * FROM teacher WHERE id > 4 OR age < 31;
+SELECT * FROM teacher WHERE NOT id = 2;
+
+Для того чтобы получить выборку между двумя значениями используется BETWEEN
+SELECT * FROM teacher WHERE age BETWEEN 35 and 45;
+
+Для того что бы удолить DELETE
+DELETE FROM teacher WHERE id = 6;
+
+
+
+
+
+INNER JOIN, LEFT JOIN, RIGHT JOIN
+
+mysql> select * from teacher;
++----+----------------+------+
+| id | surname        | age  |
++----+----------------+------+
+|  1 | Иванов         |   20 |
+|  2 | Петров         |   25 |
+|  3 | Сидоров        |   30 |
+|  4 | Петров         |   35 |
+|  5 | Чижкин         |   40 |
++----+----------------+------+
+
++----+------------------------+------------+
+| id | name                   | teacher_id |
++----+------------------------+------------+
+|  1 | Математика             |          1 |
+|  2 | Информатика            |          1 |
+|  3 | Русский                |          2 |
+|  4 | Физика                 |          3 |
++----+------------------------+------------+
+
+Есть 2 таблицы teacher OR lesson
+
+mysql> SELECT teacher.surname, lesson.name FROM teacher INNER JOIN lesson ON teacher.id = lesson.teacher_id;
+ВЫБЕРИТЕ имя учителя, имя урока ОТ учителя ВНУТРЕННИЕ ПРИСОЕДИНЯЙТЕСЬ к уроку НА учителе. id = урок. учитель _id;
++----------------+------------------------+
+| surname        | name                   |
++----------------+------------------------+
+| Иванов         | Математика             |
+| Иванов         | Информатика            |
+| Петров         | Русский                |
+| Сидоров        | Физика                 |
++----------------+------------------------+
