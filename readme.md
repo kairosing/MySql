@@ -19,9 +19,9 @@ CREATE DATABASE имя базы например sql_course
 Что бы посмотреть таблицы в этой БД прописываем show tables;
 
 создаем первую таблицу CREATE TABLE teacher(
--> id INT AUTO_INCREMENT PRIMARY KEY,
--> surname VARCHAR(255) NOT NULL
--> );
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ surname VARCHAR(255) NOT NULL
+ );
 
 
 Что бы посмотреть какие поля созданы в этой таблицы
